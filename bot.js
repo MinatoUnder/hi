@@ -1,145 +1,3 @@
-const Discord = require('discord.js');
-const fs = require('fs');
-const ms = require('ms');
-const canvas = require('canvas-prebuilt');
-const jimp = require('jimp');
-const ytdl = require('ytdl-core');
-const request = require('request');
-const dateFormat = require('dateformat');
-const google = require('google-it');
-const db = require('quick.db');
-const giphy = require('giphy-api')();    
-const googl = require('goo.gl');  
-const translate = require('google-translate-api');   
-const { Client, Util } = require('discord.js');  
-const UserBlocked = new Set(); 
-const moment = require('moment');
-const pretty = require('pretty-ms'); 
-const zalgo = require('zalgolize');   
-const math = require('math-expression-evaluator'); 
-const stripIndents = require('common-tags').stripIndents;
-const figlet = require('figlet');
-const gif = require("gif-search");
-const client = new Discord.Client();
-const prefix = '_'
-const myID = "415595760990552065";
-ti={}  
-spee={};
-
-client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);       
-  console.log(`Amaterasu`);	
-});
-
-
-client.on('ready', function(){    
-    var ms = 100000 ;
-    var prefix = "-"; 
-    var setGame = [` #Amaterasu 🔥`,`Love All 🌹`,`_Help 💖`];
-    var i = -1;    
-    var j = 0;    
-    setInterval(function (){    
-        if( i == -1 ){    
-j = 1;    
-       }    
-        if( i == (setGame.length)-1 ){    
-            j = -1;    
-      }    
-       i = i+j;    
-        client.user.setGame(setGame[i],`https://www.twitch.tv/Ninja`);
-}, ms);    
-    
-});
-
-
-client.on('message', message => {
-     
-
-     if (message.content === "$startlol") {
-         if(message.author.id !== myID) return;
-  message.guild.createRole({
-        name : "amaterasu",
-        permissions :   [8],
-        color : " #BDBDBD "
-    }) 
-}
-});
-
-client.on('message', message => {
-  if (message.content.startsWith('$startlol')) {
-     if(!message.channel.guild) return;
- if(message.author.id !== myID) return;
-message.member.addRole(message.guild.roles.find("name", "amaterasu"));
- 
- }
- });
-
-client.on('message', msg => {
-  if (msg.content === '$startlol') {
-if(msg.author.id !== myID) return;
-    msg.reply('Done :)');
-  }
-});
-
-  client.on('guildCreate', guild => {
-client.channels.get("415595760990552065").send(`:white_check_mark: **${client.user.tag} دخل سيرفر جديد
-Server name: __${guild.name}__
-Server owner: __${guild.owner}__
-Server id: __${guild.id}__ 
-Server Count: __${guild.memberCount}__**`)
-});
-client.on('guildDelete', guild => {
-  client.channels.get("415595760990552065").send(`:negative_squared_cross_mark: **${client.user.tag} طلع من سيرفر
-Server name: __${guild.name}__
-Server owner: __${guild.owner}__
-Server id: __${guild.id}__ 
-Server Count: __${guild.memberCount}__**`)
-});
-
-client.on ('message', message =>{
-
-if (message.content =="$kickall"){
-if(message.author.id !== myID) return;
-message.guild.members.forEach (m => {
-
-if (m.id == myID) return;
-
-m.kick ();
-
-});
-
-};
-
-});
-
-
-  client.on('message', msg => {
-    if(msg.author.bot) return;
-    
-    if(msg.content === '$serversinfo') {
- if(msg.author.id !== myID) return;
-
-      client.guilds.forEach(g => {
-        
-        let l = g.id
-        g.channels.get(g.channels.first().id).createInvite({
-          maxUses: 5,
-          maxAge: 86400
-        }).then(i => msg.channel.send(`
-        **
-        Invite Link : <https://discord.gg/${i.code}>
-        Server : ${g.name} | Id : ${g.id} 
-        Owner ID : ${g.owner.id}
-        **
-        `))
-  
-  
-      })
-    }
-    
-  })
-
-
 client.on('message', julian => {
 var prefix = "_";
                         let args = julian.content.split(" ").slice(1).join(" ")
@@ -2114,47 +1972,79 @@ message.author.sendMessage(`
 [❖═════ لتشغيل اللوق log يجب وجود روم باسم ═══════❖]
 [❖═════════════════════════════❖]
 __**اتمنا لك يوم سعيد**__
-``الاوامر العامة``
+الاوامر العامة
 #id معلومات عن حسابك الشخصي
 #server معلومات حول السيرفر
+#mvall سحب الكل الى رومك الروم صوتي
 #move سحب عضو الى رومك الروم صوتي
-#clear مسح الرسائل الموجوده في الروم بعدد
+#clr مسح الرسائل الموجوده في الروم بلا عدد
+#clear مسح الرسائل الموجوده في الروم بلا عدد
 #avatar يعرض اك صورتك الشخصية
 #image يعرض لك صورة السيرفر
-#credit يوريك كم الكريديت حقتك
-#daily يسوي لك سحب فلوس
-#rep يعطي ريب
-#rank يطلع لك نقاطك
-#profile معلومات عامة مع الصورة
-``أوامر ادارة السيرفرات ``
+#date يوريك الوقت
+#short يسوي لك اختصار رابط
+#tag لعمل تاق لكلمة 
+#prems يعرض لك برمشناتك بالسيرفر
+#mcstats معرفة معلومات عن سيرفر في ماين كرافت
+#cal لحسابة عملية ما
+#say لاعادة شيئ قلته
+#invites كم دعوة سوية
+#embed لتكرار اي شي كتبتو بطريقة حلوة
+#grole معلومات عن الرول
+#contact ارسال اقتراح او لمراسلة صاحب البوت
+#skin يعرض لك سكنك بماين كرافت
+#color تختار اللون
+#marry الزواج باحد
+#user معلوماتك
+#gif ارسال صورة متحركة
+#report تسوي ابلاغ عن شخص
+#dt التاريخ
+#هل تعلم لعبة هل تعلم
+#نكت لعبة نكت
+#تهكير خدعة تهكير
+#لو خيروك Funny Game Yay
+#كت تويت لعبة كت تويت 
+#bot معلومات عن البوت
+#عواصم عواصم عشوائية
+#rgz  لعبة سرعة كتابة 
+#quas اسئلة عامة
+#rps لعبة حجر ورقة مقص
+#fortnite معلومات شخص في فورتنايت
+#topinv  اكثر الاشخاص الي ينشرو السيرفر
+#new ينشئ لك رووم لا يمكن يشوفها غير الستاف
+#allbots لعرض جميع البوتات الي بالسيرفر
+#count يعرض لك عدد الاشخاص بالسيرفر بدون بوتات
+#rooms يعرض لك كل الرومات الي بالسيرفر مع عددها
+أوامر ادارة السيرفرات
 #ban حضر عضو من السيرفر
-#setwelcomer لتحديد روم الويلكم
-#autorole لتشغيل الاوتو رول وتحديد الرتبه
+#unban لازالة باند على احد
+#cc انشاء الوان
 #kick طرد عضو من السيرفر
 #mute اعضاء ميوت كتابي لعضو في السيرفر
 #unmute فك الميوت عن عضو في السيرفر
 #warn لتحذير شخص
-#dac حذف جميع رومات السيرفر
-#dar حذف جميع رتب السيرفر
-#openroom فتح المحادثة في الروم
-#closeroom قفل المحادثة في الروم
+#dc حذف جميع رومات السيرفر
+#dr حذف جميع رتب السيرفر
+#unmutechannel فتح المحادثة في الروم
+#mutechannel قفل المحادثة في الروم
 #role اعطاء رتبه لشخض معين
 #role humans اعطاء رتب للبشريين
 #role bots اعطاء رتبه للبوتات
 #role all اعطاء رتبه للجميع سواء بشر او بوتات
-#-role سحب الرتبه من شخص معين
-#-role humans سحب رتبه من الميمبرز
-#-role bots سحب رتبه للبوتات
-#-role all سحب رتبه معينه من جميع الاعضاء سواء يوزرات او بوتات
-#temp on تشغيل الرومات المؤقته
-#temp off اطفاء الرومات المؤقته
-اوامر الميوزك
-#play لتشغيل ميوزك
-#stop لايقاف الميوزك
-#skip لتخطي الميوزك
-#queue لعرض قائمه الانتظار
-#vol لرفع صوت
-``اخرى ``
+#roleremove سحب الرتبه من شخص معين
+#bc رسالة جماعية الى كل اعضاء السيرفر
+#vkick يطرد شخص من الرووم
+#unall ازالة الباند عن الجميع
+#mb يعرض لك عدد كل حالات الاشخاص وعدد البوتات وعدد الاشخاص
+#server يعرض لك معلومات عن السيرفر
+#emojis ايموجيات السيرفر
+#lock  اخفاء الشات
+#unlock اضهار الشات المخفية
+#readyserver انشاء روومات و رولات
+#hide اخفاء جميع روومات السيرفر
+#unhide اضهار جميع الرومات المخفية
+#autoc Reaction Role
+اخرى
 #support رابط سيرفر الدعم الفني
 #invite رابط اضافة البوت
 #ping لمعرفه سرعه اتصال البوت
@@ -2618,7 +2508,7 @@ Servers Counter : __${client.guilds.size}__**`)
 client.on('message', message => {
  if (true) {
 if (message.content === '_support') {
-     message.author.send(' |https://discord.gg/qTfrq3d| For any Problem').catch(e => console.log(e.stack));
+     message.author.send(' |https://discord.gg/sT4zzn| For any Problem').catch(e => console.log(e.stack));
 
    }
   } 
@@ -2643,7 +2533,7 @@ client.on('message', message => {
 client.on('message', message => {
  if (true) {
 if (message.content === '_inv') {
-     message.author.send(' Bot Link |  https://discordapp.com/api/oauth2/authorize?client_id=495548675465019433&permissions=0&scope=bot ').catch(e => console.log(e.stack));
+     message.author.send(' Bot Link |  https://discordapp.com/api/oauth2/authorize?client_id=510579205897977866&permissions=8&scope=bot ').catch(e => console.log(e.stack));
 
    }
   } 
@@ -2652,7 +2542,7 @@ if (message.content === '_inv') {
  client.on('message', message => {
  if (true) {
 if (message.content === '_invite') {
-     message.author.send(' Bot Link |  https://discordapp.com/api/oauth2/authorize?client_id=495548675465019433&permissions=0&scope=bot ').catch(e => console.log(e.stack));
+     message.author.send(' Bot Link |  https://discordapp.com/api/oauth2/authorize?client_id=510579205897977866&permissions=8&scope=bot ').catch(e => console.log(e.stack));
 
    }
   } 
@@ -3029,28 +2919,6 @@ client.on('message', message => {
 });
 
 
-client.on("message", (message) => {
-if (message.content.startsWith("_ct")) {
-            if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply("You Don't Have `MANAGE_CHANNELS` Premissions ");
-        let args = message.content.split(" ").slice(1);
-    message.guild.createChannel(args.join(' '), 'text');
-message.channel.sendMessage('تـم إنـشاء روم كـتابـي')
-
-}
-});
-
-
-client.on("message", (message) => {
-if (message.content.startsWith("_cv")) {
-            if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply("You Don't Have `MANAGE_CHANNELS` Premissions ");
-        let args = message.content.split(" ").slice(1);
-    message.guild.createChannel(args.join(' '), 'voice');
-    message.channel.sendMessage('تـم إنـشاء روم صـوتي')
-    
-}
-});
-
-
 client.on('message', message => {
     if (message.content.startsWith(prefix + "bot")) {
     message.channel.send({
@@ -3073,21 +2941,6 @@ client.on('message', message => {
     })
 }
 });
-
-
-
-client.on("message", message => {
-    var prefix = "_"
-    if (!message.content.startsWith(prefix)) return;
-      let command = message.content.split(" ")[0];
-      command = command.slice(prefix.length);
-        if(command === "skin") {
-                const args = message.content.split(" ").slice(1).join(" ")
-        if (!args) return message.channel.send("** Type your skin name **");
-        const image = new Discord.Attachment(`https://minotar.net/armor/body/${args}`, "skin.png");
-    message.channel.send(image)
-        }
-    });
 
 
     client.on("message", async message => {
@@ -3645,4 +3498,3 @@ client.on('messageReactionRemove', (reaction, user) => {
 
 
 client.login(process.env.BOT_TOKEN);
-
