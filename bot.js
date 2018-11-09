@@ -20,7 +20,7 @@ const math = require('math-expression-evaluator');
 const stripIndents = require('common-tags').stripIndents;
 const figlet = require('figlet');
 const client = new Discord.Client();
-const prefix = '-'
+const prefix = '_'
 const myID = "415595760990552065";
 ti={}  
 spee={};
@@ -2066,15 +2066,8 @@ client.on('message', message => {
 
 
 
-message.author.sendMessage('
-**
-╭━━━╮╱╱╱╱╱╭╮
-┃╭━╮┃╱╱╱╱╭╯╰╮
-┃┃╱┃┣╮╭┳━┻╮╭╋━━┳━┳━━┳━━┳╮╭╮
-┃╰━╯┃╰╯┃╭╮┃┃┃┃━┫╭┫╭╮┃━━┫┃┃┃
-┃╭━╮┃┃┃┃╭╮┃╰┫┃━┫┃┃╭╮┣━━┃╰╯┃
-╰╯╱╰┻┻┻┻╯╰┻━┻━━┻╯╰╯╰┻━━┻━━╯
-                           
+message.author.sendMessage(
+``Amaterasu``                           
 [❖═════ لتشغيل اللوق log يجب وجود روم باسم ═══════❖]
 [❖═════════════════════════════❖]
 __**اتمنا لك يوم سعيد**__
