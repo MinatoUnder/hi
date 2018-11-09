@@ -2066,7 +2066,8 @@ client.on('message', message => {
 
 
 
-message.author.sendMessage(
+message.author.sendMessage('
+**
 ╭━━━╮╱╱╱╱╱╭╮
 ┃╭━╮┃╱╱╱╱╭╯╰╮
 ┃┃╱┃┣╮╭┳━┻╮╭╋━━┳━┳━━┳━━┳╮╭╮
