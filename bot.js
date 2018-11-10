@@ -2183,7 +2183,6 @@ bot invite link: https://discordapp.com/api/oauth2/authorize?client_id=510579205
 
 `);
 
-    }
 });
 
 client.on('message',  async  message  =>  {
