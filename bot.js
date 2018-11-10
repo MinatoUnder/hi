@@ -2059,9 +2059,9 @@ message.channel.send('**تم الغاء عمليه مسح العالم بنجا�
 
 
 client.on('message', message => {
-  if (message.author.bot) return;
-   if (message.content === prefix + "help") {
-    if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**انت لست من الادارة :x:** `ADMINISTRATOR`' );
+    if (message.author.bot) return;
+     if (message.content === prefix + "help") {
+		 message.channel.send('**تم الأرسال في الخاص**');
 
 
 
@@ -2163,9 +2163,8 @@ _invite رابط اضافة البوت
 _ping لمعرفه سرعه اتصال البوت
 **`);
 
-  }
+    }
 });
-
 
 client.on('message',  async  message  =>  {
   let  user  =  message.mentions.users.first();
