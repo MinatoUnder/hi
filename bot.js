@@ -2060,9 +2060,7 @@ message.channel.send('**تم الغاء عمليه مسح العالم بنجا�
 
 client.on('message', message => {
     if (message.author.bot) return;
-     if (message.content === prefix + "help") {
-		 message.channel.send('**The Message Was Sent On Private**');
-            
+     if (message.content === prefix + "help");
 	
 		 
 
