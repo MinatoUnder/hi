@@ -2061,7 +2061,7 @@ message.channel.send('**تم الغاء عمليه مسح العالم بنجا�
 client.on('message', message => {
     if (message.author.bot) return;
      if (message.content === prefix + "help");
-	
+		 message.channel.send('**The Message Was Sent On Private**');
 		 
 
 
@@ -2118,7 +2118,6 @@ __~~The Amaterasu Bot~~__ By: Mιɳαƚσ💤💰...ᴳᴳ#0435
  ❖ _rgz  لعبة سرعة كتابة 
  ❖ _quas اسئلة عامة
  ❖ _rps لعبة حجر ورقة مقص
- ❖ _fortnite معلومات شخص في فورتنايت
  ❖ _topinv  اكثر الاشخاص الي ينشرو السيرفر
  ❖ _new ينشئ لك رووم لا يمكن يشوفها غير الستاف
  ❖ _allbots لعرض جميع البوتات الي بالسيرفر
@@ -2456,123 +2455,6 @@ client.on('message' , async (message) => {
 });
 
 
-client.on('message', async message => {
-  let Client = require('fortnite');
-  let fortnite = new Client('2bb97881-c068-4cba-b3b5-152abfc71c83');
-  let messageArray = message.content.split(" ");
-  let cmd = messageArray[0];
-  let args = messageArray.slice(1);
-    if(message.content.startsWith("_fortnite")) {
-        let username = args[0];
-        let platform = args[2] || 'pc';
-        let gamemode = args[1];
-        if(gamemode != 'solo' && gamemode != 'duo' && gamemode != 'squad' && gamemode != 'lifetime') return message.reply(`⚠️ **|  ${prefix}fortnite username solo/duo/squad/lifetime pc**`);
-        
-    if(!username) return message.reply('**Specify a username!**');
-    
-    let data = fortnite.user(username, platform).then(data => {
-        let stats = data.stats;
-        
-        if(gamemode === 'solo') {
-            let solostats = stats.solo;
-            let score = solostats.score;
-            let kd = solostats.kd;
-            let matches = solostats.matches;
-            let kills = solostats.kills;
-            let wins = solostats.wins;
-            let top3 = solostats.top_3;
-
-            let ByEmbed = new Discord.RichEmbed()
-            .setAuthor('Forntite Tracker Solo Stats')
-            .setTitle(data.username+"'s Stats")
-            .setColor("RANDOM")
-            .setThumbnail("https://www.teepublic.com/t-shirt/2412274-fortnite-logo-game-t-shirts")
-            .addField('# | Wins:',wins,true)
-            .addField('# | Kills:',kills,true)
-            .addField('# | Score:',score,true)
-            .addField("# | Matches:",matches,true)
-            .addField("# | Kill/Death Ratio:",kd,true)
-            .addField("# | Top 3:",top3,true)
-            
-            return message.channel.send(ByEmbed);
-            
-        }else if (gamemode === 'duo') {
-            let Duostats = stats.duo;
-            let score = Duostats.score;
-            let kd = Duostats.kd;
-            let matches = Duostats.matches;
-            let kills = Duostats.kills;
-            let wins = Duostats.wins;
-            let top3 = Duostats.top_3;
-
-            let ByEmbed = new Discord.RichEmbed()
-            .setAuthor('Forntite Tracker Duo Stats')
-            .setTitle(data.username+"'s Stats")
-            .setColor("RANDOM")
-            .setThumbnail("https://www.teepublic.com/t-shirt/2412274-fortnite-logo-game-t-shirts")
-            .addField('# | Wins:',wins,true)
-            .addField('# | Kills:',kills,true)
-            .addField('# | Score:',score,true)
-            .addField("# | Matches:",matches,true)
-            .addField("# | Kill/Death Ratio:",kd,true)
-            .addField("# | Top 3:",top3,true)
-            
-        message.channel.send(ByEmbed);
-
-        }else if(gamemode === 'squad') {
-            let squadstats = stats.squad;
-            let score = squadstats.score;
-            let kd = squadstats.kd;
-            let matches = squadstats.matches;
-            let kills = squadstats.kills;
-            let wins = squadstats.wins;
-            let top3 = squadstats.top_3;
-            
-            let ByEmbed = new Discord.RichEmbed()
-            .setAuthor('Forntite Tracker Squad Stats')
-            .setTitle(data.username+"'s Stats")
-            .setColor("RANDOM")
-            .setThumbnail("https://www.teepublic.com/t-shirt/2412274-fortnite-logo-game-t-shirts")
-            .addField('# | Wins:',wins,true)
-            .addField('# | Kills:',kills,true)
-            .addField('# | Score:',score,true)
-            .addField("# | Matches:",matches,true)
-            .addField("# | Kill/Death Ratio:",kd,true)
-            .addField("# | Top 3:",top3,true)
-            
-            return message.channel.send(ByEmbed);
-            
-        }else {
-            
-        
-        let lifetime = stats.lifetime;
-        let score = lifetime[6]['Score'];
-        let mplayed = lifetime[7]['Matches Played'];
-        let wins = lifetime[8]['Wins'];
-        let winper = lifetime[9]['Win%'];
-        let kills = lifetime[10]['Kills'];
-        let kd = lifetime[11]['K/d'];
-        
-                    let ByEmbed = new Discord.RichEmbed()
-            .setAuthor('Forntite Tracker Duo Stats')
-            .setTitle(data.username+"'s Stats")
-            .setColor("RANDOM")
-            .setThumbnail("https://www.teepublic.com/t-shirt/2412274-fortnite-logo-game-t-shirts")
-            .addField('# | Wins:',wins,true)
-            .addField('# | Kills:',kills,true)
-            .addField('# | Score:',score,true)
-            .addField("# | Matches:",mplayed,true)
-            .addField("# | Kill/Death Ratio:",kd,true)
-            .addField("# | Win Percentage:",winper,true)
-            
-        message.channel.send(ByEmbed);
-    }
-    })
-    }
-});
-
-
-
 client.on("message", message => {
         let args = message.content.split(" ").slice(1);
       if (message.content.startsWith('_report')) {
@@ -2872,17 +2754,6 @@ client.on('message', message => {
                  message.channel.sendEmbed(Date15);
         }
     });
-
-client.on('message', message => {
-     if (message.content === ("_help")) {
-     let embed = new Discord.RichEmbed()
-  .setAuthor(message.author.username)
-  .setColor("#8650a7")
-  .addField("Done" , " تــــم ارســالك في الخــاص")
-  message.channel.sendEmbed(embed);
-    }
-});
-
 
 client.on('message', message => {
 var prefix = "_";
