@@ -2058,15 +2058,13 @@ message.channel.send('**تم الغاء عمليه مسح العالم بنجا�
 
 
 
-client.on('message', message => {
-    if (message.author.bot) return;
-     if (message.content === prefix + "help");
-		 message.channel.send('**The Message Was Sent On Private**');
-		 
+client.on('message' , message => {
+if(message.content === '_help') {
+  var EsTeKnAN = new Discord.RichEmbed()
+  .setColor('RANDOM')
+message.author.send(`
+**
 
-
- message.author.sendMessage(`
- **
 __~~The Amaterasu Bot~~__ By: Mιɳαƚσ💤💰...ᴳᴳ#0435
 ╭━━━╮╱╱╱╱╱╭╮╱╱╱╱╱╱╱╱╱╱
 ┃╭━╮┃╱╱╱╱╭╯╰╮╱╱╱╱╱╱╱╱╱╱╱╱╱╱
@@ -2180,10 +2178,10 @@ Server support: https://discord.gg/e4ve5rf
 bot invite link: https://discordapp.com/api/oauth2/authorize?client_id=510579205897977866&permissions=8&scope=bot
 
 ==================================================================
-
+**
 `);
-
-});
+}
+})
 
 client.on('message',  async  message  =>  {
   let  user  =  message.mentions.users.first();
