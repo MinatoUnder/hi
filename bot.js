@@ -2059,10 +2059,9 @@ message.channel.send('**تم الغاء عمليه مسح العالم بنجا�
 
 client.on('message' , message => {
 if(message.content === '_help') {
-	  message.channel.send('**تم ارسالك في الخاص** :mailbox_with_mail: ');
- const embed = new Discord.RichEmbed() 
-      .setColor("RANDOM")
-      .setDescription(`
+  var EsTeKnAN = new Discord.RichEmbed()
+  .setColor('RANDOM')
+message.author.send(`
 __**وصف عن البوت**__
 **
 ─════════════ {✯اوامر البوت✯} ════════════─
