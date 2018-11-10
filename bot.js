@@ -2589,8 +2589,6 @@ Servers Counter : __${client.guilds.size}__**`)
  
 );
 
-
- var prefix = "_";
  const HeRo = new Discord.Client();
  client.on('message', message => {
      if (message.content === prefix + "date") {
