@@ -3540,8 +3540,6 @@ client.on('message', msg => {
   }
 })
 
-
-var prefix = "_" ; // البرفكس
  
 var stopReacord = true;
 var reactionRoles = [];
