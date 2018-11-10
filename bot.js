@@ -2168,7 +2168,7 @@ client.on('message',  async  message  =>  {
 if(message.content.startsWith(prefix  +  'warn'))  {
   message.delete();
   if(!message.member.hasPermission('MUTE_MEMBERS')) return      message.channel.send('**للأسف لا تمتلك صلاحيات' );
-  if(!user)  return  message.channel.send(":information_source: `#warn @OrochiX` يجب تحديد شخص ")//by  OrochiX
+  if(!user)  return  message.channel.send(":information_source: `${prefix}warn ` يجب تحديد شخص ")
   if(!reason)  return  message.channel.send("**  -  Type  Reason  **")//by  OrochiX
   let  warnembed  =  new  Discord.RichEmbed()
   .setTitle(`**New  Warned User !**`)
