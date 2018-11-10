@@ -3,7 +3,6 @@ const fs = require('fs');
 const ms = require('ms');
 const canvas = require('canvas-prebuilt');
 const jimp = require('jimp');
-const dateFormat = require('dateformat');
 const ytdl = require('ytdl-core');
 const request = require('request');
 const dateFormat = require('dateformat');
