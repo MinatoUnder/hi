@@ -3,6 +3,7 @@ const fs = require('fs');
 const ms = require('ms');
 const canvas = require('canvas-prebuilt');
 const jimp = require('jimp');
+const dateFormat = require('dateformat');
 const ytdl = require('ytdl-core');
 const request = require('request');
 const dateFormat = require('dateformat');
@@ -2065,7 +2066,6 @@ client.on('message', message => {
 
 
 
-
 message.author.sendMessage(`
 **
 ╭━━━╮╱╱╱╱╱╭╮
@@ -2076,9 +2076,13 @@ message.author.sendMessage(`
 ╰╯╱╰┻┻┻┻╯╰┻━┻━━┻╯╰╯╰┻━━┻━━╯
 
 [❖═════ لتشغيل اللوق log يجب وجود روم باسم ═══════❖]
+
 [❖═════════════════════════════❖]
+
 __**اتمنا لك يوم سعيد**__
+
 الاوامر العامة
+
 _id معلومات عن حسابك الشخصي
 _server معلومات حول السيرفر
 _mvall سحب الكل الى رومك الروم صوتي
@@ -2121,7 +2125,9 @@ _new ينشئ لك رووم لا يمكن يشوفها غير الستاف
 _allbots لعرض جميع البوتات الي بالسيرفر
 _count يعرض لك عدد الاشخاص بالسيرفر بدون بوتات
 _rooms يعرض لك كل الرومات الي بالسيرفر مع عددها
+
 أوامر ادارة السيرفرات
+
 _ban حضر عضو من السيرفر
 _unban لازالة باند على احد
 _cc انشاء الوان
@@ -2150,7 +2156,9 @@ _readyserver انشاء روومات و رولات
 _hide اخفاء جميع روومات السيرفر
 _unhide اضهار جميع الرومات المخفية
 _autoc Reaction Role
+
 اخرى
+
 _support رابط سيرفر الدعم الفني
 _invite رابط اضافة البوت
 _ping لمعرفه سرعه اتصال البوت
